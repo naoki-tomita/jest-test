@@ -9,9 +9,15 @@ export class Title {
   constructor(readonly value: string) {}
 }
 export class QiitaItem {
+  static from() {
+    return new QiitaItem(new Title(""));
+  }
   constructor(readonly title: Title) {}
 }
 export class QiitaItems extends Fcc<QiitaItem> {
+  static from() {
+    return new QiitaItems([QiitaItem.from()]);
+  }
   filterPopularItem(): QiitaItems {
     throw new Error("Method not implemented.");
   }
